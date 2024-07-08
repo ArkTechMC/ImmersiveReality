@@ -2,6 +2,8 @@ package com.iafenvoy.rlcraft.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PreLaunchWindow {
     private static final JDialog frame = new JDialog();
@@ -22,9 +24,11 @@ public class PreLaunchWindow {
         progressBar.setBackground(Color.LIGHT_GRAY);
         progressBar.setForeground(Color.BLUE);
         progressBar.setStringPainted(true);
-        progressBar.setString("Re: RLCraft is launching, please wait.");
+        progressBar.setString("Re: RLCraft is launching, please wait.<br>Press 'P' to play Tetris.");
         progressBar.setBorderPainted(true);
         frame.add(progressBar);
+
+        frame.addKeyListener(new PreLaunchWindowKeyListener());
     }
 
     public static void display() {
@@ -37,5 +41,18 @@ public class PreLaunchWindow {
         frame.setVisible(false);
         frame.dispose();
         disposed = true;
+    }
+
+    public static class PreLaunchWindowKeyListener extends KeyAdapter {
+        private static Tetris tetris = null;
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+            if (e.getKeyChar() == 'p' && tetris == null) {
+                tetris = new Tetris();
+                tetris.setAlwaysOnTop(true);
+                tetris.setVisible(true);
+            }
+        }
     }
 }
