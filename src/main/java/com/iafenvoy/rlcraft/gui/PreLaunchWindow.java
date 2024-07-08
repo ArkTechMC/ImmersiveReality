@@ -11,22 +11,42 @@ public class PreLaunchWindow {
 
     static {
         frame.setTitle("Re: RLCraft pre-launch window");
-        frame.setResizable(false);
-        frame.setSize(300, 75);
+        frame.setResizable(true);
+        frame.setSize(300, 82);
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setAlwaysOnTop(true);
 
+        JProgressBar memoryBar = new JProgressBar();
+        memoryBar.setIndeterminate(false);
+        memoryBar.setBackground(Color.LIGHT_GRAY);
+        memoryBar.setForeground(Color.RED);
+        memoryBar.setStringPainted(true);
+        memoryBar.setString("Memory: 0/0MB");
+        memoryBar.setMinimum(0);
+        frame.add(memoryBar, BorderLayout.NORTH);
+        new Thread(() -> {
+            while (!disposed) {
+                long memMax = Runtime.getRuntime().maxMemory();//Get all can allocate, not already allocated
+                long memTotal = Runtime.getRuntime().totalMemory();//Here is already allocated
+                long memFree = Runtime.getRuntime().freeMemory();
+                long memUsed = memTotal - memFree;
+                long maxInMb = bytesToMb(memMax);
+                long usedInMb = bytesToMb(memUsed);
+                memoryBar.setMaximum((int) maxInMb);
+                memoryBar.setValue((int) usedInMb);
+                memoryBar.setString(String.format("Memory: %d/%dMB", usedInMb, maxInMb));
+            }
+        }).start();
+
         JProgressBar progressBar = new JProgressBar();
         progressBar.setIndeterminate(true);
-        progressBar.setBorderPainted(true);
         progressBar.setBackground(Color.LIGHT_GRAY);
         progressBar.setForeground(Color.BLUE);
         progressBar.setStringPainted(true);
-        progressBar.setString("Re: RLCraft is launching, please wait.<br>Press 'P' to play Tetris.");
-        progressBar.setBorderPainted(true);
-        frame.add(progressBar);
+        progressBar.setString("Re: RLCraft is launching, please wait.");
+        frame.add(progressBar, BorderLayout.SOUTH);
 
         frame.addKeyListener(new PreLaunchWindowKeyListener());
     }
@@ -48,11 +68,19 @@ public class PreLaunchWindow {
 
         @Override
         public void keyTyped(KeyEvent e) {
-            if (e.getKeyChar() == 'p' && tetris == null) {
+            if (e.getKeyChar() == 't' && tetris == null) {
                 tetris = new Tetris();
                 tetris.setAlwaysOnTop(true);
                 tetris.setVisible(true);
             }
         }
+    }
+
+    public static void main(String[] args) {
+        display();
+    }
+
+    private static long bytesToMb(long bytes) {
+        return bytes / 1024L / 1024L;
     }
 }

@@ -10,7 +10,6 @@ Author: Jan Bodnar
 Website: https://zetcode.com
  */
 public class Tetris extends JFrame {
-
     private JLabel statusbar;
 
     public Tetris() {
@@ -35,7 +34,6 @@ public class Tetris extends JFrame {
     }
 
     JLabel getStatusBar() {
-
         return this.statusbar;
     }
 }
