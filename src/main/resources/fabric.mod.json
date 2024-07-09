@@ -14,12 +14,6 @@
   "icon": "assets/rlcraft/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "com.iafenvoy.rlcraft.client.RLCraftExtendedClient"
-    ],
-    "main": [
-      "com.iafenvoy.rlcraft.RLCraftExtended"
-    ],
     "preLaunch": [
       "com.iafenvoy.rlcraft.RLCraftPreLaunch"
     ]

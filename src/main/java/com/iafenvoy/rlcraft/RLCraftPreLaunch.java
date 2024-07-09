@@ -24,7 +24,11 @@ public class RLCraftPreLaunch implements PreLaunchEntrypoint {
         } catch (IOException e) {
             LOGGER.error("Failed to print RLCraft splash: ", e);
         }
-        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
+        if (isWindows() && FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT)
             PreLaunchWindow.display();
+    }
+
+    public static boolean isWindows() {
+        return System.getProperty("os.name").toLowerCase().contains("windows");
     }
 }
