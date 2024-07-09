@@ -13,7 +13,7 @@ public class PreLaunchWindow {
 
     static {
         frame.setTitle("Re: RLCraft pre-launch window");
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.setSize(300, 82);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
