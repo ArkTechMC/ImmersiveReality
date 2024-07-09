@@ -1,5 +1,7 @@
 package com.iafenvoy.rlcraft.gui;
 
+import com.iafenvoy.rlcraft.IconStorage;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -14,9 +16,10 @@ public class PreLaunchWindow {
         frame.setResizable(true);
         frame.setSize(300, 82);
         frame.setLocationRelativeTo(null);
-        frame.setBackground(Color.WHITE);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setAlwaysOnTop(true);
+        frame.addKeyListener(new PreLaunchWindowKeyListener());
+        frame.setIconImage(new ImageIcon(IconStorage.getUrl("icon_256x256.png")).getImage());
 
         JProgressBar memoryBar = new JProgressBar();
         memoryBar.setIndeterminate(false);
@@ -47,8 +50,6 @@ public class PreLaunchWindow {
         progressBar.setStringPainted(true);
         progressBar.setString("Re: RLCraft is launching, please wait.");
         frame.add(progressBar, BorderLayout.SOUTH);
-
-        frame.addKeyListener(new PreLaunchWindowKeyListener());
     }
 
     public static void display() {
