@@ -12,7 +12,7 @@ public class PreLaunchWindow {
     private static boolean disposed = false;
 
     static {
-        frame.setTitle("Re: RLCraft pre-launch window");
+        frame.setTitle("Re-RLCraft pre-launch window");
         frame.setResizable(false);
         frame.setSize(300, 82);
         frame.setLocationRelativeTo(null);
@@ -48,7 +48,7 @@ public class PreLaunchWindow {
         progressBar.setBackground(Color.LIGHT_GRAY);
         progressBar.setForeground(Color.BLUE);
         progressBar.setStringPainted(true);
-        progressBar.setString("Re: RLCraft is launching, please wait.");
+        progressBar.setString("Re-RLCraft is launching, please wait.");
         frame.add(progressBar, BorderLayout.SOUTH);
     }
 

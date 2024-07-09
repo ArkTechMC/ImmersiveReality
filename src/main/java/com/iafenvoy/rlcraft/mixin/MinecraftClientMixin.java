@@ -21,7 +21,7 @@ public abstract class MinecraftClientMixin {
 
     @ModifyReturnValue(method = "getWindowTitle", at = @At("RETURN"))
     private String addRlcName(String original) {
-        return original + " | Re: RLCraft" + (this.loaded ? "" : " Loading");
+        return original + " | Re-RLCraft" + (this.loaded ? "" : " Loading");
     }
 
     @Inject(method = "setOverlay", at = @At("RETURN"))
