@@ -1,4 +1,4 @@
-package com.iafenvoy.rlcraft.gui;
+package com.iafenvoy.immersive_reality.gui;
 
 import javax.swing.*;
 import java.awt.*;

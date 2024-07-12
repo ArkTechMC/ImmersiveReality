@@ -1,6 +1,6 @@
-package com.iafenvoy.rlcraft.mixin;
+package com.iafenvoy.immersive_reality.mixin;
 
-import com.iafenvoy.rlcraft.gui.PreLaunchWindow;
+import com.iafenvoy.immersive_reality.gui.PreLaunchWindow;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Overlay;
@@ -21,7 +21,7 @@ public abstract class MinecraftClientMixin {
 
     @ModifyReturnValue(method = "getWindowTitle", at = @At("RETURN"))
     private String addRlcName(String original) {
-        return original + " | Re-RLCraft" + (this.loaded ? "" : " Loading");
+        return original + " | Immersive Reality" + (this.loaded ? "" : " Loading");
     }
 
     @Inject(method = "setOverlay", at = @At("RETURN"))

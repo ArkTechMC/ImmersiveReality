@@ -1,6 +1,6 @@
-package com.iafenvoy.rlcraft;
+package com.iafenvoy.immersive_reality;
 
-import com.iafenvoy.rlcraft.gui.PreLaunchWindow;
+import com.iafenvoy.immersive_reality.gui.PreLaunchWindow;
 import com.mojang.logging.LogUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -12,12 +12,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class RLCraftPreLaunch implements PreLaunchEntrypoint {
+public class ImmersiveRealityPreLaunch implements PreLaunchEntrypoint {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     @Override
     public void onPreLaunch() {
-        try (InputStream stream = RLCraftPreLaunch.class.getResourceAsStream("/splash.txt")) {
+        try (InputStream stream = ImmersiveRealityPreLaunch.class.getResourceAsStream("/splash.txt")) {
             assert stream != null;
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(stream));
             bufferedReader.lines().forEach(LOGGER::info);

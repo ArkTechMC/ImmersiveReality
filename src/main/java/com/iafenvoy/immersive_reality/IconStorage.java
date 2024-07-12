@@ -1,4 +1,4 @@
-package com.iafenvoy.rlcraft;
+package com.iafenvoy.immersive_reality;
 
 import org.jetbrains.annotations.Nullable;
 

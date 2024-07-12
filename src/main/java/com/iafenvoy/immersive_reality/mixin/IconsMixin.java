@@ -1,6 +1,6 @@
-package com.iafenvoy.rlcraft.mixin;
+package com.iafenvoy.immersive_reality.mixin;
 
-import com.iafenvoy.rlcraft.IconStorage;
+import com.iafenvoy.immersive_reality.IconStorage;
 import net.minecraft.client.util.Icons;
 import net.minecraft.resource.InputSupplier;
 import net.minecraft.resource.ResourcePack;

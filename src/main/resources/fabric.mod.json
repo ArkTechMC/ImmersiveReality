@@ -8,18 +8,18 @@
     "IAFEnvoy"
   ],
   "contact": {
-    "repo": "https://github.com/ArkTechMC/RLCraftExtended"
+    "repo": "https://github.com/ArkTechMC/ImmersiveReality"
   },
   "license": "LGPL-3.0",
   "icon": "icons/icon_256x256.png",
   "environment": "*",
   "entrypoints": {
     "preLaunch": [
-      "com.iafenvoy.rlcraft.RLCraftPreLaunch"
+      "com.iafenvoy.immersive_reality.ImmersiveRealityPreLaunch"
     ]
   },
   "mixins": [
-    "rlcraft.mixins.json"
+    "immersive_reality.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
