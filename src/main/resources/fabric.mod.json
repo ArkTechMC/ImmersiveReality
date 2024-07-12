@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "id": "rlcraft",
+  "id": "immersive_reality",
   "version": "${version}",
-  "name": "RLCraft Extended",
+  "name": "Immersive Reality",
   "description": "",
   "authors": [
     "IAFEnvoy"
